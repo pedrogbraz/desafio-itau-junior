@@ -11,7 +11,7 @@ Este projeto é uma API REST para gerenciar transações e calcular estatística
 Para rodar esta aplicação, você precisa de:
 
 Java: JDK 21 ou superior.
-Maven: Versão 4.0 ou superior.
+Maven: Versão 3.8.1 ou superior.
 Git: Para clonar o repositório.
 Docker (opcional): Caso queira rodar a aplicação em um container.
 
