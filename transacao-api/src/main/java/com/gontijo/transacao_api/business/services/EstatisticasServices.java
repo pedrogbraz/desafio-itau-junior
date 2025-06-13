@@ -19,6 +19,9 @@ public class EstatisticasServices {
     public EstatisticasResponseDTO calcularEstatisticasTransacoes(Integer intervaloBusca) {
         // Metodo para buscar as transacoes que foram feitas no intervalo de tempo de 60 segundos
         log.info("Iniciada busca de estatisticas de transações pelo periodo de tempo de" + intervaloBusca);
+
+        long start =System.currentTimeMillis();
+
         List<TransacaoRequestDTO> transacoes = transacaoService.buscarTransacoes(intervaloBusca);
 
         // Se as estatisticas estiverem vazias, elas serão todas atribuidas como 0
@@ -29,6 +32,10 @@ public class EstatisticasServices {
         // Metodo para fazer o calculo e atribuir valores para as estatisticas
         DoubleSummaryStatistics estatisticasTransacoes = transacoes.stream()
                 .mapToDouble(TransacaoRequestDTO::valor).summaryStatistics();
+
+        long finish = System.currentTimeMillis();
+        System.out.println("Tempo de execucao: " + (finish - start) + "ms");
+
         log.info("Estatisticas retornadas com sucesso");
         return new EstatisticasResponseDTO(estatisticasTransacoes.getCount(), estatisticasTransacoes.getSum(), estatisticasTransacoes.getAverage(), estatisticasTransacoes.getMin(), estatisticasTransacoes.getMax());
     }
