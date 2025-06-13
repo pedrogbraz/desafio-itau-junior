@@ -18,7 +18,7 @@ public class EstatisticasServices {
     // Metodo para buscar as transacoes
     public EstatisticasResponseDTO calcularEstatisticasTransacoes(Integer intervaloBusca) {
         // Metodo para buscar as transacoes que foram feitas no intervalo de tempo de 60 segundos
-        log.info("Iniciada busca de estatisticas de transações pelo periodo de tempo de" + intervaloBusca);
+        log.info("Iniciada busca de estatisticas de transações pelo periodo de tempo de " + intervaloBusca);
 
         long start =System.currentTimeMillis();
 
